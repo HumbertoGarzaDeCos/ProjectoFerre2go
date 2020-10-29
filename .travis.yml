@@ -6,7 +6,7 @@ jdk:
   - oraclejdk8
 services:
   - mysql
- before_script:
+before_script:
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('Humb3rt0.*') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
 before_install:
   - chmod +x mvnw
