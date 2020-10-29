@@ -12,7 +12,7 @@
 	<artifactId>F2G</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
-	<name>F2G</name>
+	<name>f2g</name>
 	<description>Aplicacion Ferre2Go para Ferreteria Gamez</description>
 
 	<properties>
