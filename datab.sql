@@ -18,7 +18,7 @@
 --
 -- Table structure for table `abastecimiento`
 --
-CREATE USER 'root'@'localhost' IDENTIFIED BY 'Humb3rt0.*';
+ALTER USER 'root' IDENTIFIED BY 'Humb3rt0.*';
 GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO 'root'@'localhost';
 
 CREATE DATABASE IF NOT EXISTS `qa` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
