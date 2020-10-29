@@ -2,6 +2,18 @@ GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO 'root'@'localhost';
 
 CREATE DATABASE IF NOT EXISTS `qa` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `qa`;
+CREATE TABLE IF NOT EXISTS `productos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` blob NOT NULL,
+  `sku` blob NOT NULL,
+  `precio` blob NOT NULL,
+  `detalles` blob NOT NULL,
+  `dimesniones` blob NOT NULL,
+  `activo` int NOT NULL,
+  `cantidad` int NOT NULL,
+  `alerta` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `abastecimiento` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -32,18 +44,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE IF NOT EXISTS `articulos` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `idPedido` int NOT NULL,
-  `idProducto` int NOT NULL,
-  `cantidad` int NOT NULL,
-  `precio` double NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `idProducto` (`idProducto`),
-  KEY `idPedido` (`idPedido`),
-  CONSTRAINT `articulos_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`id`),
-  CONSTRAINT `articulos_ibfk_2` FOREIGN KEY (`idPedido`) REFERENCES `pedidos` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 CREATE TABLE IF NOT EXISTS `categorias` (
@@ -92,18 +93,6 @@ CREATE TABLE IF NOT EXISTS `producto_categoria` (
   CONSTRAINT `producto_categoria_ibfk_2` FOREIGN KEY (`idCat`) REFERENCES `categorias` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS `productos` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` blob NOT NULL,
-  `sku` blob NOT NULL,
-  `precio` blob NOT NULL,
-  `detalles` blob NOT NULL,
-  `dimesniones` blob NOT NULL,
-  `activo` int NOT NULL,
-  `cantidad` int NOT NULL,
-  `alerta` int NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS `proveedores` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -125,4 +114,16 @@ CREATE TABLE IF NOT EXISTS `proveedorproducto` (
   KEY `idProd` (`idProd`),
   CONSTRAINT `proveedorproducto_ibfk_1` FOREIGN KEY (`idProv`) REFERENCES `proveedores` (`id`),
   CONSTRAINT `proveedorproducto_ibfk_2` FOREIGN KEY (`idProd`) REFERENCES `productos` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `articulos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `idPedido` int NOT NULL,
+  `idProducto` int NOT NULL,
+  `cantidad` int NOT NULL,
+  `precio` double NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idProducto` (`idProducto`),
+  KEY `idPedido` (`idPedido`),
+  CONSTRAINT `articulos_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`id`),
+  CONSTRAINT `articulos_ibfk_2` FOREIGN KEY (`idPedido`) REFERENCES `pedidos` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
