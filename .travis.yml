@@ -8,4 +8,4 @@ services:
   - mysql
 before_install:
   - chmod +x mvnw
-  - mysql -u root --password="" < database.sql
+  - mysql -u root --password="" < datab.sql
