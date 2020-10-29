@@ -38,7 +38,7 @@ class F2GApplicationTests {
 		cliente1.setEmail("email@hihi.com");
 		clienteDb.saveOrUpdate(cliente1);
 		Clientes cliente2= clienteDb.getClienteById(1);
-		assertThat(cliente1).isEqualTo(cliente2);
+		assertThat(cliente1.getNombre()).isEqualTo(cliente2.getNombre());
 	}
 
 	private boolean check(ResponseEntity<String> test, ResponseEntity<String> responseEntity) {
