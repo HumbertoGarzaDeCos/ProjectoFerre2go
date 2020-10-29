@@ -18,7 +18,11 @@
 --
 -- Table structure for table `abastecimiento`
 --
+CREATE USER 'root'@'localhost' IDENTIFIED BY 'Humb3rt0.*';
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO 'root'@'localhost';
 
+CREATE DATABASE IF NOT EXISTS `qa` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `qa`;
 DROP TABLE IF EXISTS `abastecimiento`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
