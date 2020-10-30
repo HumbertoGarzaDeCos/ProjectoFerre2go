@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.beto.apps</groupId>
-	<artifactId>F2G</artifactId>
+	<artifactId>f2g</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
 	<name>f2g</name>
